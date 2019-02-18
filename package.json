@@ -9,6 +9,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "element-ui": "^2.5.4",
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
@@ -23,22 +24,31 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
-    "eslint": "^5.8.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.5.21"
   },
   "eslintConfig": {
     "root": true,
+    "parser": "vue-eslint-parser",
     "env": {
-      "node": true
+      "node": true,
+      "browser": true
     },
     "extends": [
-      "plugin:vue/essential",
+      "eslint:recommended",
+      "airbnb-base",
+      "plugin:prettier/recommended",
+      "plugin:vue/recommended",
       "@vue/prettier"
     ],
     "rules": {},
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "babel-eslint",
+      "sourceType": "module"
     }
   },
   "postcss": {
