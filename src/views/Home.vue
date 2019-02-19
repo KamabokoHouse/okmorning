@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <section>
+      <article v-for="check in checkList" :key="check.id">
+        <check-item :check="check"></check-item>
+      </article>
+    </section>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import CheckItem from "@/components/CheckItem.vue";
 
 export default {
-  name: "home",
+  name: "Home",
   components: {
-    HelloWorld
+    CheckItem
+  },
+  data() {
+    return {
+      checkList: []
+    };
+  },
+  mounted() {
+    this.setCheckList();
+  },
+  methods: {
+    setCheckList: function() {
+      import("@/assets/morning.json").then(morningList => {
+        this.checkList = morningList.default;
+      });
+    }
   }
 };
 </script>
