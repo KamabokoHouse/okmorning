@@ -11,8 +11,13 @@
       <article>
         <el-row>
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-            <el-button type="success" icon="el-icon-check" round>
-              終わった！
+            <el-button
+              type="success"
+              icon="el-icon-check"
+              round
+              @click="complete"
+            >
+              全部終わりました！
             </el-button>
           </el-col>
         </el-row>
@@ -42,6 +47,10 @@ export default {
       import("@/assets/morning.json").then(morningList => {
         this.checkList = morningList.default;
       });
+    },
+    complete: function() {
+      location.href =
+        "https://twitter.com/share?text=今日の朝は完璧です。お出掛けに心配はいりません。&amp;url=https://goodmorning-dev.firebaseapp.com&amp;hashtags=goodMorning&amp;lang=ja";
     }
   }
 };
