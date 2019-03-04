@@ -15,6 +15,7 @@
 <script>
 import CommonHeader from "@/views/common/Header.vue";
 import CommonFooter from "@/views/common/Footer.vue";
+
 export default {
   name: "App",
   components: {

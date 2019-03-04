@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-header>
-      <el-col :span="24">GoodMorning</el-col>
+      <el-col :span="24">okMorning</el-col>
     </el-header>
   </div>
 </template>
