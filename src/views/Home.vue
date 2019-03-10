@@ -1,18 +1,57 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <section>
+      <article>
+        <el-row v-for="check in checkList" :key="check.id">
+          <check-item :check="check"></check-item>
+        </el-row>
+      </article>
+    </section>
+    <section>
+      <article>
+        <el-row>
+          <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+            <el-button
+              type="success"
+              icon="el-icon-check"
+              round
+              @click="complete"
+            >
+              全部終わりました！
+            </el-button>
+          </el-col>
+        </el-row>
+      </article>
+    </section>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import CheckItem from "@/components/CheckItem.vue";
 
 export default {
-  name: "home",
+  name: "Home",
   components: {
-    HelloWorld
+    CheckItem
+  },
+  data() {
+    return {
+      checkList: []
+    };
+  },
+  mounted() {
+    this.setCheckList();
+  },
+  methods: {
+    setCheckList: function() {
+      import("@/assets/morning.json").then(morningList => {
+        this.checkList = morningList.default;
+      });
+    },
+    complete: function() {
+      location.href =
+        "https://twitter.com/share?text=今日の朝は完璧です。お出掛けに心配はいりません。&amp;url=https://goodmorning-dev.firebaseapp.com&amp;hashtags=goodMorning&amp;lang=ja";
+    }
   }
 };
 </script>
