@@ -50,8 +50,7 @@ export default {
     },
     complete: function() {
       location.href =
-        "https://twitter.com/share?text=今日の朝は完璧です。お出掛けに心配はいりません。&amp;url=https://goodmorning-dev.firebaseapp.com&amp;hashtags=goodMorning&amp;lang=ja";
-    }
+        "https://twitter.com/share?text=朝の準備が終わったよ&url=https://goodmorning-dev.firebaseapp.com&hashtags=goodMorning&lang=ja";    }
   }
 };
 </script>

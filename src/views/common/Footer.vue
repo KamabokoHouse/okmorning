@@ -14,9 +14,11 @@ export default {
 
 <style scoped>
 .el-footer {
-  background-color: #b3c0d1;
-  color: #333;
+  background-color: #6eb4fa;
+  color: #ffffff;
+  font-family: "PingFang SC";
   text-align: center;
   line-height: 60px;
+  font-size: 20px;
 }
 </style>
