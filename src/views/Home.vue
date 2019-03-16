@@ -15,6 +15,7 @@
               type="success"
               icon="el-icon-check"
               round
+              :disabled="!disabled"
               @click="complete"
             >
               全部終わりました！
@@ -36,8 +37,19 @@ export default {
   },
   data() {
     return {
-      checkList: []
+      checkList: [],
+      disabled: false
     };
+  },
+  computed: {
+    isDoneAll() {
+      return this.$store.getters.isDoneAll;
+    }
+  },
+  watch: {
+    isDoneAll() {
+      this.disabled = this.isDoneAll;
+    }
   },
   mounted() {
     this.setCheckList();
@@ -46,6 +58,7 @@ export default {
     setCheckList: function() {
       import("@/assets/morning.json").then(morningList => {
         this.checkList = morningList.default;
+        this.$store.dispatch("init", this.checkList.length);
       });
     },
     complete: function() {

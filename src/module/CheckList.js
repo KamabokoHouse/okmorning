@@ -12,19 +12,8 @@ const mutations = {
   }
 };
 
-const actions = {
-  init({ commit }, allCount) {
-    commit("setCheckListCount", allCount);
-  },
-  count({ commit }, isDone) {
-    if (isDone === false) {
-      commit("setDoneCount", -1);
-      return;
-    }
-
-    commit("setDoneCount", 1);
-  },
-  isDoneAll({ state }) {
+const getters = {
+  isDoneAll(state) {
     if (state.checkListCount === state.doneCheckCount) {
       return true;
     }
@@ -33,8 +22,25 @@ const actions = {
   }
 };
 
+const actions = {
+  init({ commit }, allCount) {
+    // eslint-disable-next-line no-console
+    console.log();
+    commit("setCheckListCount", { allCount });
+  },
+  done({ commit }, isDone) {
+    if (isDone === false) {
+      commit("setDoneCount", { count: -1 });
+      return;
+    }
+
+    commit("setDoneCount", { count: 1 });
+  }
+};
+
 export default {
   state,
+  getters,
   mutations,
   actions
 };

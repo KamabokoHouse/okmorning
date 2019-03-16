@@ -31,17 +31,14 @@ export default {
     };
   },
   methods: {
-    test: function() {
-      // eslint-disable-next-line
-      console.log("dada");
-      return false;
-    },
     done: function() {
       if (this.isDone) {
         this.isDone = false;
       } else {
         this.isDone = true;
       }
+
+      this.$store.dispatch("done", this.isDone);
     }
   }
 };
